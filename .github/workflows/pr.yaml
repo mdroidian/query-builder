@@ -11,7 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: install
+      - name: Clean npm cache
+        run: npm cache clean --force
+      - name: Remove existing dependencies
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
+      - name: Install dependencies
         run: npm install --legacy-peer-deps
-      - name: build
+      - name: Build
         run: npx samepage build
