@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: install
+      - name: Install
         run: npm install
-      - name: build
+      - name: Build
         run: npx samepage build
