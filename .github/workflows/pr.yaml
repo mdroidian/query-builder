@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: install
-        run: npm install
-      - name: build
+      - name: Clean npm cache
+        run: npm cache clean --force
+      - name: Install
+        run: npm install --legacy-peer-deps
+      - name: Build
         run: npx samepage build
